@@ -1,9 +1,9 @@
 <?php
 
-	public class Nodo(){
-	
-		private $dato;
-		private $nodo;
+	class Nodo{
+
+		private $dato = null;
+		private $siguiente = null;
 
 		public function getDato(){
 			return $this->dato;
@@ -14,11 +14,11 @@
 		}
 
 		public function getSiguiente(){
-			return $this->nodo;
+			return $this->siguiente;
 		}
 
 		public function setSiguiente($siguiente){
 			$this->nodo = $siguiente;
 		}
-	
+
 	}

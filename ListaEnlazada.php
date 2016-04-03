@@ -1,39 +1,36 @@
 <?php
-	
+
 require'Lista.php';
 require 'Nodo.php';
 
-public class ListaEnlazada extends Lista(){
+class ListaEnlazada extends Lista{
 
-	
-	public function __construct((Nodo)$inicial){
-		
+
+	public function __construct(Nodo $inicial){
+
 		$this->inicial = $inicial;
-		
-	}		
-	
-	public function elemento((int)$pos){
+
+	}
+
+	public function elemento(int $pos){
 		$posAux=0;
-		
+
 		while($this->inicial->getSiguiente()!= null){
 			if($pos == $posAux){
 				return $this->inicial;
 			}
 			else{
-				$this->inicial = $this->inicial->getSiguiente();					
-				$posAux +=1;	
+				$this->inicial = $this->inicial->getSiguiente();
+				$posAux +=1;
 			}
-
-
-				
 		}
 	}
 
-	public function agregar((Object)$elem,(int)$pos){
+	public function agregar(Object $elem, int $pos){
                 $this->datos[$pos] = $elem;
         }
 
-	public function eliminar((Object)$elem){
+	public function eliminar(Object $elem){
 		foreach($this->datos as $i=>$value){
 			if ($elem == $this->datos[$i]){
 				unset($this->datos[$i]);
@@ -47,21 +44,21 @@ public class ListaEnlazada extends Lista(){
 		}
 		else{
 			return false;
-		}		
+		}
 	}
 
-	public function incluye((Object)$elem){
+	public function incluye(Object $elem){
 
 		$encontrado = false;
 
                 foreach($this->datos as $i=>$value){
                         if ($elem == $this->datos[$i]){
                         	$encontrado = true;
-				break();
+													break;
                         }
-			else{
-				$encontrado = false;
-			}
+												else{
+													$encontrado = false;
+												}
                 }
 
 		return $encontrado;
@@ -69,4 +66,3 @@ public class ListaEnlazada extends Lista(){
 
 
 }
-
