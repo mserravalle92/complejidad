@@ -1,7 +1,5 @@
 <?php
 
-	// require 'Lista.php';
-	// require 'Nodo.php';
 
 	class ListaConArreglo extends Lista{
 
@@ -48,14 +46,13 @@
 		$encontrado = false;
 
     foreach($this->datos as $i=>$value){
-
-						if ($elem === $this->datos[$i]){
-            	$encontrado = true;
-							break;
-            }
-						else{
-							$encontrado = false;
-						}
+			if ($elem === $this->datos[$i]){
+	    	$encontrado = true;
+				break;
+	    }
+			else{
+				$encontrado = false;
+			}
     }
 
 		return $encontrado;

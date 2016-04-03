@@ -1,7 +1,5 @@
 <?php
 
-// include 'Recorredor.php';
-
 
 abstract class Lista{
 
