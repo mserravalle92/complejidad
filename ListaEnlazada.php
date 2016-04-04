@@ -1,18 +1,11 @@
 <?php
 
-require'Lista.php';
-require 'Nodo.php';
-
 class ListaEnlazada extends Lista{
 
+	var $inicial = null;
 
-	public function __construct(Nodo $inicial){
 
-		$this->inicial = $inicial;
-
-	}
-
-	public function elemento(int $pos){
+	public function elemento($pos){
 		$posAux=0;
 
 		while($this->inicial->getSiguiente()!= null){
@@ -24,22 +17,32 @@ class ListaEnlazada extends Lista{
 				$posAux +=1;
 			}
 		}
+		return $this->inicial;
 	}
 
-	public function agregar(Object $elem, int $pos){
-                $this->datos[$pos] = $elem;
-        }
-
-	public function eliminar(Object $elem){
-		foreach($this->datos as $i=>$value){
-			if ($elem == $this->datos[$i]){
-				unset($this->datos[$i]);
+	public function agregar($elem,  $pos){
+  	$posAux = 0;
+		//Verifico que si el inicial es null lo agregue al inicio.
+		if ($this->inicial == null) {
+			$this->inicial = $elem;
+		}
+		//sino hasta que las posiciones sean iguales busco el siguiente.
+		else{
+			while($posAux =! $pos){
+				$this->inicial = $this->inicial->getSiguiente();
+				$posAux +=1;
 			}
 		}
+
+	}
+
+
+	public function eliminar($elem){
+
 	}
 
 	public function esVacia(){
-		if(count($this->datos == 0)){
+		if ($this->inicial == null) {
 			return true;
 		}
 		else{
@@ -47,22 +50,43 @@ class ListaEnlazada extends Lista{
 		}
 	}
 
-	public function incluye(Object $elem){
-
+	public function incluye($elem){
 		$encontrado = false;
 
-                foreach($this->datos as $i=>$value){
-                        if ($elem == $this->datos[$i]){
-                        	$encontrado = true;
-													break;
-                        }
-												else{
-													$encontrado = false;
-												}
-                }
+
+		// Si el inicial es nulo no se puede encontrar.
+		if ($this->inicial == null) {
+			$encontrado = false;
+		}
+
+		//mientras encontrado sea falso verificamos si el inicial es igual al pedido
+		else{
+			while ($encontrado == false) {
+				if($this->inicial === $elem){
+					$encontrado = true;
+				}
+
+				// si no es igual que se obtenga el siguiente nodo mientras no sea null
+				else{
+					if ($this->inicial->getSiguiente() != null) {
+						$this->incial == $this->inicial->getSiguiente();
+					}
+					//en caso de no encontrarse nada retorna falso y sale del bucle
+					else{
+						$encontrado == false;
+						return $encontrado;
+						break;
+					}
+				}
+
+			}
+		}
 
 		return $encontrado;
-        }
+	}
+
+
+
 
 
 }

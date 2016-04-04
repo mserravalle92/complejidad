@@ -18,7 +18,7 @@
 		}
 
 		public function setSiguiente($siguiente){
-			$this->nodo = $siguiente;
+			$this->siguiente = $siguiente;
 		}
 
 	}
