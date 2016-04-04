@@ -21,20 +21,28 @@ class ListaEnlazada extends Lista{
 	}
 
 	public function agregar($elem,  $pos){
-  	$posAux = 0;
-		//Verifico que si el inicial es null lo agregue al inicio.
-		if ($this->inicial == null) {
-			$this->inicial = $elem;
-		}
-		//sino hasta que las posiciones sean iguales busco el siguiente.
+		$actual = 0;
+  	if ($this->inicial == null) {
+  		$this->inicial = $elem;
+  	}
 		else{
-			while($posAux =! $pos){
-				$this->inicial = $this->inicial->getSiguiente();
-				$posAux +=1;
-			}
-		}
+			while ($actual < $pos) {
+						if ($this->inicial->getSiguiente() == null) {
+							$this->inicial->setSiguiente($elem);
+							$actual +=1;
+						}
+						else{
+							$this->inicial = $this->inicial->getSiguiente();
+							$actual += 1;
+						}
 
-	}
+					}
+			$this->inicial->setSiguiente($elem);
+
+				}
+			}
+
+
 
 
 	public function eliminar($elem){
@@ -69,7 +77,7 @@ class ListaEnlazada extends Lista{
 				// si no es igual que se obtenga el siguiente nodo mientras no sea null
 				else{
 					if ($this->inicial->getSiguiente() != null) {
-						$this->incial == $this->inicial->getSiguiente();
+						$this->inicial == $this->inicial->getSiguiente();
 					}
 					//en caso de no encontrarse nada retorna falso y sale del bucle
 					else{
