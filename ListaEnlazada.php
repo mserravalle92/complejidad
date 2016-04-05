@@ -49,41 +49,26 @@ class ListaEnlazada extends Lista{
 
 	public function incluye($elem){
 		$encontrado = false;
-
-
+		//creo un elemento auxiliar con el elemento inicial para no setear el inicial con otro nodo
+		$elemAux = $this->inicial;
 		// Si el inicial es nulo no se puede encontrar.
-		if ($this->inicial == null) {
+		if ($elemAux == null) {
 			$encontrado = false;
 		}
 
 		//mientras encontrado sea falso verificamos si el inicial es igual al pedido
+
 		else{
-			while ($encontrado == false) {
-				if($this->inicial === $elem){
+			while ($encontrado == false and $elemAux != null) {
+				if ($elemAux === $elem) {
 					$encontrado = true;
+					break;
 				}
-
-				// si no es igual que se obtenga el siguiente nodo mientras no sea null
-				else{
-					if ($this->inicial->getSiguiente() != null) {
-						$this->inicial == $this->inicial->getSiguiente();
-					}
-					//en caso de no encontrarse nada retorna falso y sale del bucle
-					else{
-						$encontrado == false;
-						return $encontrado;
-						break;
-					}
-				}
-
+				$elemAux = $elemAux->getSiguiente();
 			}
 		}
-
 		return $encontrado;
+		}
+
+
 	}
-
-
-
-
-
-}

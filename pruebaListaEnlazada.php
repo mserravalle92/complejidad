@@ -31,31 +31,46 @@ var_export($nodo->getSiguiente());
 //
 echo "<br>------------------------<br>";
 //
-//
+
+//***********************Agrego nodo 2*************************
+
 $listaEnlazada->agregar($nodo2,1);
-// echo "Incluye Nodo 2: ";
-// var_dump($listaEnlazada->incluye($nodo2));
-//
-// echo "<br>------------------------<br>";
-//
+
+echo "Incluye Nodo 2?: ";
+
+var_dump($listaEnlazada->incluye($nodo2));
+
+
+echo "<br>------------------------<br>";
+
 echo "Siguiente del Nodo 1: ";
 
 var_export($nodo->getSiguiente());
-// echo "Siguiente del Nodo 2: ";
-// var_dump($nodo2->getSiguiente());
-// //
-// // echo "<br>------------------------<br>";
-//
+
+echo "<br>------------------------<br>";
+echo "Incluye Nodo 2 antes de agregar?: ";
+
+var_dump($listaEnlazada->incluye($nodo2));
+
+echo "<br>------------------------<br>";
+//***********************Agrego nodo 3*************************
 $listaEnlazada->agregar($nodo3,2);
-// echo "Incluye Nodo 3?: ";
-// var_dump($listaEnlazada->incluye($nodo3));
+echo "Incluye Nodo 3?: ";
+var_dump($listaEnlazada->incluye($nodo3));
+echo "<br>------------------------<br>";
+
+echo "Siguiente del Nodo 1 y del dos: ";
+var_export($nodo->getSiguiente());
+
 
 echo "<br>------------------------<br>";
 
 echo "Siguiente del Nodo 2: ";
 var_export($nodo2->getSiguiente());
-//
-// echo "Ahora estÃ¡ vacÃ­a?: ";
-//
-// var_dump($listaEnlazada->esVacia());
+
+
+echo "<br>------------------------<br>";
+echo "Ahora está vací­a?: ";
+
+var_dump($listaEnlazada->esVacia());
  ?>
