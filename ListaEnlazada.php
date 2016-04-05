@@ -26,24 +26,13 @@ class ListaEnlazada extends Lista{
   		$this->inicial = $elem;
   	}
 		else{
-			while ($actual < $pos) {
-						if ($this->inicial->getSiguiente() == null) {
-							$this->inicial->setSiguiente($elem);
-							$actual +=1;
-						}
-						else{
-							$this->inicial = $this->inicial->getSiguiente();
-							$actual += 1;
-						}
-
-					}
-			$this->inicial->setSiguiente($elem);
-
-				}
+			while ( $this->inicial->getSiguiente() != null) {
+				$this->inicial = $this->inicial->getSiguiente();
+				$actual +=1;
 			}
-
-
-
+			$this->inicial->setSiguiente($elem);
+		}
+	}
 
 	public function eliminar($elem){
 
