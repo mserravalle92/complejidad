@@ -21,25 +21,25 @@ $listaEnlazada = new ListaEnlazada();
 $recorredor = $listaEnlazada->recorredor();
 
 $recorredor->agregar($nodo);
-echo "Iteración: ".$recorredor->actual()." <br />";
+echo "Iteraciï¿½n: ".$recorredor->actual()." <br />";
 var_dump($recorredor->elemento());
 $recorredor->proximo();
 echo "<br/>";
 echo "<br/>";
 $recorredor->agregar($nodo2);
-echo "Iteración: ".$recorredor->actual()." <br />";
+echo "Iteraciï¿½n: ".$recorredor->actual()." <br />";
 var_dump($recorredor->elemento());
 $recorredor->proximo();
 echo "<br/>";
 echo "<br/>";
 $recorredor->agregar($nodo3);
-echo "Iteración: ".$recorredor->actual()." <br />";
+echo "Iteraciï¿½n: ".$recorredor->actual()." <br />";
 var_dump($recorredor->elemento());
 echo "<br/>";
 echo "<br/>";
 
-// var_dump($nodo->getSiguiente());
-// var_dump($nodo->getDato());
+$recorredor->eliminar();
+var_dump($recorredor->elemento());
 
 
 

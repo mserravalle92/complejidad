@@ -47,13 +47,18 @@ echo "Siguiente del Nodo 1: ";
 
 var_export($nodo->getSiguiente());
 
+
 echo "<br>------------------------<br>";
 echo "Incluye Nodo 2 antes de agregar?: ";
 
 var_dump($listaEnlazada->incluye($nodo2));
 
 echo "<br>------------------------<br>";
+
+
 //***********************Agrego nodo 3*************************
+$listaEnlazada->eliminar($nodo2);
+
 $listaEnlazada->agregar($nodo3,2);
 echo "Incluye Nodo 3?: ";
 var_dump($listaEnlazada->incluye($nodo3));
@@ -70,7 +75,16 @@ var_export($nodo2->getSiguiente());
 
 
 echo "<br>------------------------<br>";
-echo "Ahora está vací­a?: ";
+echo "Ahora esta vacia?: ";
 
 var_dump($listaEnlazada->esVacia());
+
+echo "<br>------------------------<br>";
+
+// var_export($nodo2->getSiguiente());
+
+echo "Nodo3 eliminado esta? ";
+var_dump($listaEnlazada->incluye($nodo3));
+
+echo "<br>------------------------<br>";
  ?>

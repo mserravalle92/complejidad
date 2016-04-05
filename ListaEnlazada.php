@@ -7,29 +7,34 @@ class ListaEnlazada extends Lista{
 
 	public function elemento($pos){
 		$posAux=0;
+		$elemAux = $this->inicial;
+
 		if($pos == $posAux){
-			return $this->inicial;
+			return $elemAux;
 		}
 		elseif($this->inicial==null){
-				return $this->inicial;
+				return $elemAux;
 		}
 		else{
-			if ($this->inicial->getSiguiente()!= null) {
-				while($this->inicial->getSiguiente()!= null){
+			if ($elemAux->getSiguiente()!= null) {
+				while($elemAux->getSiguiente()!= null){
 					if($pos == $posAux){
-						return $this->inicial;
+						return $elemAux;
 					}
 					else{
-						$this->inicial = $this->inicial->getSiguiente();
+						$elemAux = $elemAux->getSiguiente();
 						$posAux +=1;
 					}
 				}
 			}
 			else{
-				$this->inicial = null;
+				if ($pos == $posAux) {
+					return $elemAux;
+				}
+				$elemAux = null;
 			}
 		}
-		return $this->inicial;
+		return $elemAux;
 	}
 
 
@@ -53,6 +58,24 @@ class ListaEnlazada extends Lista{
 	}
 
 	public function eliminar($elem){
+
+		if ($this->inicial === $elem) {
+			$this->inicial = null;
+		}
+		else{
+			while ($this->inicial->getSiguiente() != null) {
+				if ($this->inicial === $elem) {
+					$this->inicial = null;
+				}
+				else{
+					$this->inicial = $this->inicial->getSiguiente();
+					if($this->inicial === $elem){
+						$this->inicial = null;
+						break;
+					}
+				}
+			}
+		}
 
 	}
 

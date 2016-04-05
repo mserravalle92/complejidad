@@ -22,7 +22,6 @@ class Recorredor{
 
 	public function proximo(){
 		$this->actual += 1;
-		// return $this->elemento();
 	}
 
 	public function fin(){
