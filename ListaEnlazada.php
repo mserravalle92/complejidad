@@ -7,18 +7,31 @@ class ListaEnlazada extends Lista{
 
 	public function elemento($pos){
 		$posAux=0;
-
-		while($this->inicial->getSiguiente()!= null){
-			if($pos == $posAux){
+		if($pos == $posAux){
+			return $this->inicial;
+		}
+		elseif($this->inicial==null){
 				return $this->inicial;
+		}
+		else{
+			if ($this->inicial->getSiguiente()!= null) {
+				while($this->inicial->getSiguiente()!= null){
+					if($pos == $posAux){
+						return $this->inicial;
+					}
+					else{
+						$this->inicial = $this->inicial->getSiguiente();
+						$posAux +=1;
+					}
+				}
 			}
 			else{
-				$this->inicial = $this->inicial->getSiguiente();
-				$posAux +=1;
+				$this->inicial = null;
 			}
 		}
 		return $this->inicial;
 	}
+
 
 	public function agregar($elem,  $pos){
 		$actual = 0;
@@ -30,7 +43,12 @@ class ListaEnlazada extends Lista{
 				$this->inicial = $this->inicial->getSiguiente();
 				$actual +=1;
 			}
-			$this->inicial->setSiguiente($elem);
+			if ($actual == $pos) {
+				$this->inicial = $elem;
+			}
+			else{
+				$this->inicial->setSiguiente($elem);
+			}
 		}
 	}
 

@@ -12,7 +12,7 @@ abstract class Lista{
 		abstract public function incluye($elem);
 
 		public function recorredor(){
-			return new Recorredor();
+			return new Recorredor($this);
 		}
 
 		public function getTamanio(){
